@@ -26,13 +26,13 @@ pyproject.toml参照
 <input type="checkbox" checked> 学習<br>
 ↓<br>
 <input type="checkbox" checked> dynamic quantization<br>
-- torch.ao.quantization.quantize_dynamicの理解
+- torch.ao.quantization.quantize_dynamicの理解<br>
 ↓<br>
 <input type="checkbox" checked> static quantization<br>
-- prepare -> calibration -> convertの流れの理解
+- prepare -> calibration -> convertの流れの理解<br>
 ↓<br>
 <input type="checkbox" checked> QAT (Quantization Aware Training)<br>
-- prepare -> 追加学習(前半: Observer有効、後半: Observer無効) -> convertの流れの理解
+- prepare -> 追加学習(前半: Observer有効、後半: Observer無効) -> convertの流れの理解<br>
 
 # NPU前提量子化学習ロードマップ
 <input type="checkbox" checked> PyTorchモデル作成 (tarin.py)<br>
