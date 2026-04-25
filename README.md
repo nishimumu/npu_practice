@@ -6,10 +6,13 @@ GPUではなくNPUにAIモデルを実装するための練習サンプル
 pyproject.toml参照
  
 # Usage
-train.py: MNISTを題材として小型CNNの学習を実行する
-quantize_dynamic.py: DYNAMICな量子化を行い、モデルサイズが小さくなることを確認するサンプル
-quantize_static.py: STATICな量子化を行い、モデルサイズが小さくなることを確認するサンプル
- 
+- train.py: MNISTを題材として小型CNNの学習を実行する
+- quantize_dynamic.py: DYNAMICな量子化を行い、モデルサイズが小さくなることを確認するサンプル
+- quantize_static.py: STATICな量子化を行い、モデルサイズが小さくなることを確認するサンプル
+- train_qat.py: QAT(Quantization Aware Training)を用いて学習を実行するサンプル
+- quantize_static_onnx.py: ONNXでFP32モデルをINT8量子化するサンプル
+- export_to_onnx.py: PyTorchのモデルをonnxに変換するサンプル
+
 # Note
 量子化の手法
 - PTQ: 学習済みモデルを後から量子化する
@@ -32,16 +35,16 @@ quantize_static.py: STATICな量子化を行い、モデルサイズが小さく
 - prepare -> 追加学習(前半: Observer有効、後半: Observer無効) -> convertの流れの理解
 
 # NPU前提量子化学習ロードマップ
-[x]PyTorchモデル作成
+[x]PyTorchモデル作成 (tarin.py)
 ↓
-[x]学習
+[x]学習 (train.py)
 ↓
-[x]ONNX export
+[x]ONNX export (export_to_onnx.py)
 ↓
-[x]ONNX Runtimeで推論確認
+[x]ONNX Runtimeで推論確認 (export_to_onnx.py)
 ↓
-[]ONNX RuntimeでINT8量子化
+[x]ONNX RuntimeでINT8量子化 (quantize_static_onnx.py)
 ↓
-[]ONNX Runtimeで推論確認
+[x]ONNX Runtimeで推論確認 (quantize_static_onnx.py)
 ↓
 []NetronでQDQ / QOperator構造を見る
