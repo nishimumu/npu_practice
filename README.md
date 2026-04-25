@@ -17,7 +17,7 @@ quantize_static.py: STATICな量子化を行い、モデルサイズが小さく
 -- DYNAMIC: 実行時にactivationのスケールを決める
 - QAT: 量子化される前提で学習・微調整
 
-# 学習ロードマップ
+# 量子化学習ロードマップ
 [x]PyTorchモデル作成
 ↓
 [x]学習
@@ -30,11 +30,18 @@ quantize_static.py: STATICな量子化を行い、モデルサイズが小さく
 ↓
 [x]QAT (Quantization Aware Training)
 - prepare -> 追加学習(前半: Observer有効、後半: Observer無効) -> convertの流れの理解
+
+# NPU前提量子化学習ロードマップ
+[x]PyTorchモデル作成
 ↓
-[]ONNX export
+[x]学習
+↓
+[x]ONNX export
+↓
+[x]ONNX Runtimeで推論確認
+↓
+[]ONNX RuntimeでINT8量子化
 ↓
 []ONNX Runtimeで推論確認
 ↓
-[]FP32 / INT8 / ONNX出力比較
-↓
-[]モデル構造・op確認
+[]NetronでQDQ / QOperator構造を見る
