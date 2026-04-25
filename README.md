@@ -28,12 +28,13 @@ quantize_static.py: STATICな量子化を行い、モデルサイズが小さく
 [x]static quantization
 - prepare -> calibration -> convertの流れの理解
 ↓
-QAT
+[x]QAT (Quantization Aware Training)
+- prepare -> 追加学習(前半: Observer有効、後半: Observer無効) -> convertの流れの理解
 ↓
-ONNX export
+[]ONNX export
 ↓
-ONNX Runtimeで推論確認
+[]ONNX Runtimeで推論確認
 ↓
-FP32 / INT8 / ONNX出力比較
+[]FP32 / INT8 / ONNX出力比較
 ↓
-モデル構造・op確認
+[]モデル構造・op確認

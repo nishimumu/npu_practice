@@ -27,7 +27,7 @@ class StaticQuantWrapper(nn.Module):
         return x
 
 
-def select_quantization_backend() -> tuple[str, torch.ao.quantization.QConfig]:
+def select_quantization_backend(qat: bool = False) -> tuple[str, torch.ao.quantization.QConfig]:
     supported_engines = torch.backends.quantized.supported_engines
 
     # 使えるバックエンドを探してpytorchに設定する
@@ -36,7 +36,10 @@ def select_quantization_backend() -> tuple[str, torch.ao.quantization.QConfig]:
             continue
 
         try:
-            qconfig = torch.ao.quantization.get_default_qconfig(backend)
+            if qat:
+                qconfig = torch.ao.quantization.get_default_qat_qconfig(backend)
+            else:
+                qconfig = torch.ao.quantization.get_default_qconfig(backend)
         except Exception:
             continue
 
